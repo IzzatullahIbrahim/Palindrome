@@ -15,14 +15,39 @@
             // }
 
             //Intermediate level
-            function palindrome(word) {
-                var word = word.replace(/[\W_.,]/g, '').toLowerCase();
-                var len = word.length - 1;
+            // function palindrome(word) {
+            //     var word = word.replace(/[\W_.,]/g, '').toLowerCase();
+            //     var len = word.length - 1;
+            //
+            //     for (var i = 0; i < len / 2; i++) {
+            //         if (word[i] !== word[len - i]) {
+            //             return false;
+            //         }
+            //     }
+            //     return true;
+            // }
 
-                for (var i = 0; i < len / 2; i++) {
-                    if (word[i] !== word[len - i]) {
+            //Advanced level
+            function palindrome(word) {
+                var front = 0;
+                var back = word.length - 1;
+
+                while (back > front) {
+                    while (word[front].match(/[\W_.,]/)) {
+                        front++;
+                        continue;
+                    }
+
+                    while (word[back].match(/[\W_.,]/)) {
+                        back--;
+                        continue;
+                    }
+
+                    if (word[front].toLowerCase() !== word[back].toLowerCase()) {
                         return false;
                     }
+                    front++;
+                    back--;
                 }
                 return true;
             }
