@@ -35,17 +35,16 @@
                 while (back > front) {
                     while (word[front].match(/[\W_.,]/)) {
                         front++;
-                        continue;
                     }
 
                     while (word[back].match(/[\W_.,]/)) {
                         back--;
-                        continue;
                     }
 
                     if (word[front].toLowerCase() !== word[back].toLowerCase()) {
                         return false;
                     }
+
                     front++;
                     back--;
                 }
