@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Palindrome</title>
+    </head>
+    <body>
+        <h1>
+            Check Palindrome in console.log with palindrome("word")
+        </h1>
+
+        <script>
+            //Basic level
+            // function palindrome(word) {
+            //     return word.replace(/[\W_.,]/g, '').toLowerCase() == word.replace(/[\W_.,]/g, '').toLowerCase().split('').reverse().join('');
+            // }
+
+            //Intermediate level
+            function palindrome(word) {
+                var word = word.replace(/[\W_.,]/g, '').toLowerCase();
+                var len = word.length - 1;
+
+                for (var i = 0; i < len / 2; i++) {
+                    if (word[i] !== word[len - i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        </script>
+    </body>
+</html>
